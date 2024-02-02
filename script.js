@@ -63,8 +63,8 @@ let weather = {
         console.log("GOOD MORNING")
         const recognition = new webkitSpeechRecognition();
         const search_bar = document.getElementsByClassName("search-bar")[0];
-        // search_bar.value = null;
-        const valid_places = ["New York", "Michigan", "Seattle", "Korea", "Florida", "California", "San Diego", "Canton", "France"]
+        const valid_places = ["New York", "Michigan", "Seattle", "Korea", "Florida", "California", "San Diego", "Canton", "France", "San Francisco"]
+        // Can expand into as many cities as needed
         recognition.continuous = false;
         recognition.onresult = (event) => {
             const result = event.results[0][0].transcript.toLowerCase();
