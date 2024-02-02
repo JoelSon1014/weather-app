@@ -28,6 +28,18 @@ let weather = {
 
     search: function () {
         this.fetchWeather(document.querySelector(".search-bar").value);
+    },
+
+    start_speech_recognition: function () {
+        const recognition = new webkitSpeechRecognition();
+        const search_bar = document.getElementsByClassName("search-bar");
+        console.log("HELLO")
+        recognition.onresult = function(event) {
+            const result = event.results[0][0].transcript;
+            search_bar.value = result;
+        }
+
+        recognition.start();
     }
 };
 
