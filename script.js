@@ -63,6 +63,7 @@ let weather = {
         console.log("GOOD MORNING")
         const recognition = new webkitSpeechRecognition();
         const search_bar = document.getElementsByClassName("search-bar")[0];
+        // search_bar.value = null;
         const valid_places = ["New York", "Michigan", "Seattle", "Korea", "Florida", "California", "San Diego", "Canton", "France"]
         recognition.continuous = false;
         recognition.onresult = (event) => {
@@ -83,6 +84,7 @@ let weather = {
 
             if (closest_place) {
                 search_bar.value = closest_place;
+                weather.search();
             }
             else {
                 console.log("No matches found :(");
@@ -93,7 +95,7 @@ let weather = {
 
         setTimeout(function() {
             recognition.stop();
-            console.log("Speech recognition stopped after 3 seconds.");
+            console.log("Speech recognition stopped after 15 seconds.");
 
         }, 15000);
     }
